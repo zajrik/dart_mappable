@@ -19,6 +19,7 @@ dependencies:
   dart_mappable:
     git:
       url: https://github.com/zajrik/dart_mappable.git
+      ref: git-dep
       path: packages/dart_mappable
   dart_style: ^3.0.1
   glob: ^2.1.0
@@ -30,4 +31,3 @@ dev_dependencies:
   build_test: ^3.3.0
   lints: '>=1.0.0 <6.0.0'
   test: ^1.25.10
-  

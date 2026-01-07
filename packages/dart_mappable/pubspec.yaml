@@ -28,7 +28,7 @@ dev_dependencies:
   dart_mappable_builder:
     git:
       url: https://github.com/zajrik/dart_mappable.git
+      ref: git-dep
       path: packages/dart_mappable_builder
   lints: ^5.0.0
   test: ^1.25.10
-
