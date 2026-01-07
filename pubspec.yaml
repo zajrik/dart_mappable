@@ -15,7 +15,7 @@ melos:
   ide:
     intellij:
       enabled: false
-      
+
   command:
     bootstrap:
       usePubspecOverrides: true
@@ -41,3 +41,4 @@ melos:
       run: melos exec -- 'dart format . --set-exit-if-changed'
     analyze:
       run: melos exec -- 'dart analyze . --fatal-infos'
+

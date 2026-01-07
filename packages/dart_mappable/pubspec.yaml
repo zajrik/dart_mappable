@@ -20,6 +20,7 @@ topics:
 
 dependencies:
   collection: ^1.15.0
+  fast_immutable_collections: ^11.1.0
   meta: ^1.8.0
   type_plus: ^2.1.1
 
@@ -31,4 +32,3 @@ dev_dependencies:
       path: packages/dart_mappable_builder
   lints: ^5.0.0
   test: ^1.25.10
-
