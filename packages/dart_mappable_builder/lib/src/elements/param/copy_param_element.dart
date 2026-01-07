@@ -72,6 +72,8 @@ class CopyParamElement {
         yield makeCollectionConfig(0, 'List');
       } else if (param.parameter.type.isDartCoreMap) {
         yield makeCollectionConfig(1, 'Map');
+      } else if (param.parameter.type.element?.displayName == 'IMap') {
+        yield makeCollectionConfig(1, 'IMap');
       } else {
         var classElement = param.parameter.type.element;
         var classConfig = resolveElement(classElement);
