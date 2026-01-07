@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
-import '../copywith_base.dart';
-import '../list_copy_with.dart' show ItemCopyWith;
+import 'copywith_base.dart';
+import 'list_copy_with.dart' show ItemCopyWith;
 
 /// Interface used for [IMap]s in chained copyWith methods
 ///
