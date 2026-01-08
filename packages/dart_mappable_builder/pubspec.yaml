@@ -17,11 +17,11 @@ dependencies:
   build: ^4.0.0
   collection: ^1.15.0
   dart_mappable:
-    path: ../dart_mappable
-    # git:
-    #   url: https://github.com/zajrik/dart_mappable.git
-    #   ref: fic-copywith
-    #   path: packages/dart_mappable
+    # path: ../dart_mappable
+    git:
+      url: https://github.com/zajrik/dart_mappable.git
+      ref: fic-copywith
+      path: packages/dart_mappable
   dart_style: ^3.0.1
   glob: ^2.1.0
   path: ^1.8.0
