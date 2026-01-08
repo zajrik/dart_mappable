@@ -1,6 +1,9 @@
 import 'copywith_base.dart';
 import 'list_copy_with.dart' show ItemCopyWith;
 
+typedef _Filter<Key, Value> = bool Function(Key, Value);
+typedef _Transform<Key, Value> = MapEntry<Key, Value> Function(Key, Value);
+
 /// Interface used for [Map]s in chained copyWith methods
 /// All methods return a new modified map and do not modify the original map.
 ///
@@ -29,6 +32,15 @@ abstract class MapCopyWith<Result, Key, Value, Copy> {
 
   /// Returns a new map without [key]
   Result remove(Key key);
+
+  /// Returns a new map with all entries where [filter] returns `true` removed.
+  Result removeWhere(bool Function(Key key, Value value) filter);
+
+  /// Returns a new map with all entries transformed by [transform].
+  Result map(MapEntry<Key, Value> Function(Key key, Value value) transform);
+
+  /// Returns a new empty map.
+  Result clear();
 
   /// Applies any transformer function on the value
   Result $update(Map<Key, Value> Function(Map<Key, Value>) transform);
@@ -64,4 +76,13 @@ class _MapCopyWith<Result, Key, Value, Copy>
 
   @override
   Result remove(Key key) => $then({...$value}..remove(key));
+
+  @override
+  Result removeWhere(_Filter<Key, Value> filter) => $then({...$value}..removeWhere(filter));
+
+  @override
+  Result map(_Transform<Key, Value> transform) => $then($value.map(transform));
+
+  @override
+  Result clear() => $then(const {});
 }

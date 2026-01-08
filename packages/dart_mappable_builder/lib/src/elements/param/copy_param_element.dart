@@ -70,8 +70,14 @@ class CopyParamElement {
 
       if (param.parameter.type.isDartCoreList) {
         yield makeCollectionConfig(0, 'List');
+      } else if (param.parameter.type.isDartCoreSet) {
+        yield makeCollectionConfig(0, 'Set');
       } else if (param.parameter.type.isDartCoreMap) {
         yield makeCollectionConfig(1, 'Map');
+      } else if (param.parameter.type.element?.displayName == 'IList') {
+        yield makeCollectionConfig(0, 'IList');
+      } else if (param.parameter.type.element?.displayName == 'ISet') {
+        yield makeCollectionConfig(0, 'ISet');
       } else if (param.parameter.type.element?.displayName == 'IMap') {
         yield makeCollectionConfig(1, 'IMap');
       } else {
