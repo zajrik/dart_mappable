@@ -96,8 +96,8 @@ void main() {
     test('replace / remove', () {
       var b = B<int>({'a': 1, 'b': 2});
 
-      var b2 = b.copyWith.items.replace('a', 3);
-      expect(b2.items, equals({'a': 3, 'b': 2}));
+      var b2 = b.copyWith.items.replace('a', 'c', 3);
+      expect(b2.items, equals({'c': 3, 'b': 2}));
 
       var b3 = b.copyWith.items.remove('b');
       expect(b3.items, equals({'a': 1}));

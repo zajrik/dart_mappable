@@ -28,8 +28,9 @@ abstract class IMapCopyWith<Result, Key, Value, Copy> {
   /// Returns a new imap with all entries inserted to the map
   Result putAll(IMap<Key, Value> v);
 
-  /// Returns a new imap with the value at [key] replaced with a new value
-  Result replace(Key key, Value v);
+  /// Returns a new imap with the entry at [oldKey] replaced with [newValue] at
+  /// [newKey]
+  Result replace(Key oldKey, Key newKey, Value newValue);
 
   /// Returns a new imap without [key]
   Result remove(Key key);
@@ -63,7 +64,7 @@ class _IMapCopyWith<Result, Key, Value, Copy>
   @override
   Copy? get(Key key) =>
       $value[key] is Value
-          ? _item($value[key] as Value, (v) => replace(key, v))
+          ? _item($value[key] as Value, (v) => put(key, v))
           : null;
 
   @override
@@ -73,7 +74,7 @@ class _IMapCopyWith<Result, Key, Value, Copy>
   Result putAll(IMap<Key, Value> v) => $then($value.addAll(v));
 
   @override
-  Result replace(Key key, Value v) => $then($value.add(key, v));
+  Result replace(Key oldKey, Key newKey, Value newValue) => $then($value.remove(oldKey).add(newKey, newValue));
 
   @override
   Result remove(Key key) => $then($value.remove(key));

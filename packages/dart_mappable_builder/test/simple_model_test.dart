@@ -9,16 +9,16 @@ void main() {
         {
           'model': '''
             import 'package:dart_mappable/dart_mappable.dart';
-            
+
             part 'model.mapper.dart';
-            
+
             @MappableClass()
             class Model with ModelMappable {
               final String a;
               final int b;
               final double? c;
               final bool d;
-            
+
               Model(this.a, {this.b = 18, this.c, required this.d});
             }
           ''',
@@ -27,7 +27,9 @@ void main() {
           'model':
               '// coverage:ignore-file\n'
               '// GENERATED CODE - DO NOT MODIFY BY HAND\n'
+              '// dart format off\n'
               '// ignore_for_file: type=lint\n'
+              '// ignore_for_file: invalid_use_of_protected_member\n'
               '// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member\n'
               '// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter\n'
               '\n'
@@ -153,9 +155,9 @@ void main() {
         {
           'model': '''
             import 'package:dart_mappable/dart_mappable.dart';
-            
+
             part 'model.mapper.dart';
-            
+
             @MappableRecord()
             typedef FullName = (@MappableField(key: r'\$firstName') String, String);
 
@@ -163,7 +165,7 @@ void main() {
             class Rawkeymodel with RawkeymodelMappable {
               final String a;
               final FullName? b;
-            
+
               Rawkeymodel({
                 @MappableField(key: r'\$key') required this.a,
                 this.b,
@@ -175,7 +177,9 @@ void main() {
           'model':
               '// coverage:ignore-file\n'
               '// GENERATED CODE - DO NOT MODIFY BY HAND\n'
+              '// dart format off\n'
               '// ignore_for_file: type=lint\n'
+              '// ignore_for_file: invalid_use_of_protected_member\n'
               '// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member\n'
               '// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter\n'
               '\n'

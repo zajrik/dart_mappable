@@ -27,8 +27,9 @@ abstract class MapCopyWith<Result, Key, Value, Copy> {
   /// Returns a new map with all entries inserted to the map
   Result putAll(Map<Key, Value> v);
 
-  /// Returns a new map with the value at [key] replaced with a new value
-  Result replace(Key key, Value v);
+  /// Returns a new map with the entry at [oldKey] replaced with [newValue] at
+  /// [newKey]
+  Result replace(Key oldKey, Key newKey, Value newValue);
 
   /// Returns a new map without [key]
   Result remove(Key key);
@@ -62,7 +63,7 @@ class _MapCopyWith<Result, Key, Value, Copy>
   @override
   Copy? get(Key key) =>
       $value[key] is Value
-          ? _item($value[key] as Value, (v) => replace(key, v))
+          ? _item($value[key] as Value, (v) => put(key, v))
           : null;
 
   @override
@@ -72,7 +73,7 @@ class _MapCopyWith<Result, Key, Value, Copy>
   Result putAll(Map<Key, Value> v) => $then({...$value, ...v});
 
   @override
-  Result replace(Key key, Value v) => $then({...$value, key: v});
+  Result replace(Key oldKey, Key newKey, Value newValue) => $then({...$value}..remove(oldKey)..[newKey] = newValue);
 
   @override
   Result remove(Key key) => $then({...$value}..remove(key));
