@@ -1,3 +1,9 @@
+## 4.7.0
+
+- Allow `analyzer` 10.0.0.
+- Add `useNodoc` option for excluding generated classes from dartdoc output.
+- Fix type signature of nested `copyWith` parameters in some cases.
+
 # 4.6.4
 
 - Fix nested `copyWith` on a inherited class with the superclass and field type in another library.
